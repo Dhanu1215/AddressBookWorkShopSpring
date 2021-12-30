@@ -1,15 +1,30 @@
 package com.example.addressbook.model;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.example.addressbook.dto.PersonDTO;
 
 import lombok.Data;
 
 /**
  * Persons details 
+ * @Table : person_data
  * @author praja
  *
  */
+@Entity
+@Table(name="person_data")
 public @Data class PersonData {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "person_id")
 	private int personId;
+	
 	private String firstName;
 	private String lastName;
 	private String gender;
@@ -22,23 +37,24 @@ public @Data class PersonData {
 	private String profilePic;
 	
 	
-	public PersonData() {
-		
+	public PersonData() {}
+	
+	public PersonData(PersonDTO personDTO) {
+		this.updatePersonData(personDTO);
 	}
-	public PersonData(int personId, String firstName, String lastName, String gender, long phoneNum, String email,
-			String city, String state, String country, String address, String profilePic) {
-		super();
-		this.personId = personId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.gender = gender;
-		this.phoneNum = phoneNum;
-		this.email = email;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.address = address;
-		this.profilePic = profilePic;
+
+	public void updatePersonData(PersonDTO personDTO) {
+		this.firstName = personDTO.firstName;
+		this.lastName = personDTO.lastName;
+		this.gender = personDTO.gender;
+		this.phoneNum = personDTO.phoneNum;
+		this.email = personDTO.email;
+		this.city = personDTO.city;
+		this.state = personDTO.state;
+		this.country = personDTO.country;
+		this.address = personDTO.address;
+		this.profilePic = personDTO.profilePic;
+		
 	}
 	
 }
