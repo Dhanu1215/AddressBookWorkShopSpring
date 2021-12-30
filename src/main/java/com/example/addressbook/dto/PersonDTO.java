@@ -6,8 +6,6 @@ import lombok.Data;
  *
  */
 public @Data class PersonDTO {
-	
-	public int personId;
 	public String firstName;
 	public String lastName;
 	public String gender;
@@ -19,10 +17,9 @@ public @Data class PersonDTO {
 	public String address;
 	public String profilePic;
 	
-	public PersonDTO(int personId, String firstName, String lastName, String gender, long phoneNum, String email,
+	public PersonDTO( String firstName, String lastName, String gender, long phoneNum, String email,
 			String city, String state, String country, String address, String profilePic) {
 		super();
-		this.personId = personId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
