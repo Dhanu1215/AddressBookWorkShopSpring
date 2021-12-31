@@ -32,8 +32,8 @@ public class PersonController {
 	private IPersonService personService;
 
 	/**
-	 * Call Get method
-	 * 
+	 * Call Get method to handle get call
+	 * It returns contact details of person
 	 * @return : Http Status & Contact details of the person
 	 */
 	@RequestMapping(value = { "/get" })
@@ -45,8 +45,8 @@ public class PersonController {
 	}
 
 	/**
-	 * Call Get method
-	 * 
+	 * Call Get method 
+	 * It returns contact details of the person by contact Id
 	 * @param id : contact Id
 	 * @return : Contact details of the person
 	 */
@@ -60,8 +60,8 @@ public class PersonController {
 
 	/**
 	 * Call post method to add details
-	 * 
-	 * @param personDTO : details id, Firstname, Lastname, Address, City & phoneNum
+	 * It creates the contact details of person
+	 * @param personDTO : details id, Firstname, Lastname, Address, City & phoneNum etc.
 	 * @return : details
 	 */
 	@PostMapping("/create")
@@ -74,7 +74,7 @@ public class PersonController {
 
 	/**
 	 * Call put method to update details
-	 * 
+	 * It update the contact details of person by id.
 	 * @param personDTO : details id, Firstname, Lastname, Address, City & phoneNum
 	 * @return : details
 	 */
@@ -88,7 +88,7 @@ public class PersonController {
 
 	/**
 	 * Call delete method to remove address book details
-	 * 
+	 * It delete the contact details of the person by id
 	 * @param id : Address book id
 	 * @return : contact id which is deleted
 	 */
