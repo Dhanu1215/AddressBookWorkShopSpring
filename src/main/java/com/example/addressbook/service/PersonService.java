@@ -18,6 +18,9 @@ import com.example.addressbook.repository.IPersonRepository;
 @Service
 public class PersonService implements IPersonService {
 
+	/**
+	 * Introducing Dao layer to store the data in database
+	 */
 	@Autowired
 	private IPersonRepository presonRepository;
 
