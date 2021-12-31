@@ -20,14 +20,17 @@ import com.example.addressbook.service.IPersonService;
 
 /**
  * Rest Controller to handle the all rest calls
- * 
+ * @RestController : PersonController
  * @author praja
- *
  */
 @RestController
 @RequestMapping("/person")
 public class PersonController {
 	
+	/**
+	 * @Autowired : Marks a constructor, field, setter method, or 
+	 * configure method as to be autowired by Spring's dependency injection facilities.
+	 */
 	@Autowired
 	private IPersonService personService;
 
@@ -75,7 +78,7 @@ public class PersonController {
 	/**
 	 * Call put method to update details
 	 * It update the contact details of person by id.
-	 * @param personDTO : details id, Firstname, Lastname, Address, City & phoneNum
+	 * @param personDTO : details id, Firstname, Lastname, Address, City & phoneNum etc.
 	 * @return : details
 	 */
 	@PutMapping("/update/{id}")
