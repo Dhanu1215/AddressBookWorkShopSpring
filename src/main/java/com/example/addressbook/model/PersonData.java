@@ -1,4 +1,5 @@
 package com.example.addressbook.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,20 +12,20 @@ import com.example.addressbook.dto.PersonDTO;
 import lombok.Data;
 
 /**
- * Persons details 
- * @Table : person_data
+ * Persons details
+ * 
  * @author praja
  *
  */
 @Entity
-@Table(name="person_data")
+@Table(name = "person_data")
 public @Data class PersonData {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "person_id")
 	private int personId;
-	
+
 	private String firstName;
 	private String lastName;
 	private String gender;
@@ -35,10 +36,10 @@ public @Data class PersonData {
 	private String country;
 	private String address;
 	private String profilePic;
-	
-	
-	public PersonData() {}
-	
+
+	public PersonData() {
+	}
+
 	public PersonData(PersonDTO personDTO) {
 		this.updatePersonData(personDTO);
 	}
@@ -54,7 +55,7 @@ public @Data class PersonData {
 		this.country = personDTO.country;
 		this.address = personDTO.address;
 		this.profilePic = personDTO.profilePic;
-		
+
 	}
-	
+
 }
