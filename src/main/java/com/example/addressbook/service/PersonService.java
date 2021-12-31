@@ -11,17 +11,19 @@ import com.example.addressbook.repository.IPersonRepository;
 
 /**
  * PersonService : Business logic
+ * 
  * @author praja
  *
  */
 @Service
 public class PersonService implements IPersonService {
-	
+
 	@Autowired
 	private IPersonRepository presonRepository;
 
 	/**
 	 * Call Get method
+	 * 
 	 * @return : Contact details of the person
 	 */
 	@Override
@@ -31,6 +33,7 @@ public class PersonService implements IPersonService {
 
 	/**
 	 * Call Get method
+	 * 
 	 * @param id : contact Id
 	 * @return : Contact details of the person
 	 */
@@ -41,6 +44,7 @@ public class PersonService implements IPersonService {
 
 	/**
 	 * Call post method to add details
+	 * 
 	 * @param personDTO : details id, Firstname, Lastname, Address, City & phoneNum
 	 * @return : details
 	 */
@@ -53,25 +57,27 @@ public class PersonService implements IPersonService {
 
 	/**
 	 * Call put method to update details
+	 * 
 	 * @param personDTO : person details
 	 * @return : details
 	 */
 	@Override
 	public PersonData updatePersonData(int id, PersonDTO personDTO) {
-        PersonData contactData  = this.getPersonDataById(id);
-        contactData .updatePersonData(personDTO);
-        return presonRepository.save(contactData);
+		PersonData contactData = this.getPersonDataById(id);
+		contactData.updatePersonData(personDTO);
+		return presonRepository.save(contactData);
 	}
 
 	/**
 	 * Call delete method to remove address book details
+	 * 
 	 * @param id : contact id
 	 * @return : contact id which is deleted
 	 */
 	@Override
 	public void deletePersonData(int id) {
-		PersonData contactData  = this.getPersonDataById(id);
-		presonRepository.delete(contactData );
+		PersonData contactData = this.getPersonDataById(id);
+		presonRepository.delete(contactData);
 	}
-	
+
 }
