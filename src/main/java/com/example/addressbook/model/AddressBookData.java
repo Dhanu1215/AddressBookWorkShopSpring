@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import com.example.addressbook.dto.AddressBookDTO;
+
 import lombok.Data;
 
 @Entity
@@ -25,6 +28,9 @@ public @Data class AddressBookData {
 		super();
 		this.bookId = bookId;
 		this.addressBookName = addressBookName;
+	}
+
+	public AddressBookData(AddressBookDTO addressDTO) {
 	}
 
 	@OneToMany(targetEntity = PersonData.class,cascade = CascadeType.ALL)
