@@ -20,7 +20,7 @@ public @ToString class PersonDTO {
 	@Pattern(regexp = "male|female",message = "Gender should be male or female")
 	public String gender;
 	
-	@Pattern(regexp = "^\\d{10}$",message = "Phone number is Invalid")
+	@Pattern(regexp = "^[0-9]{10}$",message = "Phone number is Invalid")
 	public String phoneNum;
 
 	@Pattern(regexp = "(([a-z A-Z]{3,})([-$&+,:;=?#|'<>.^*()%!]?[0-9 a-z A-Z]{3,})?+@([0-9 a-z]{1,})([.])([a-z]{2,})([.])?([a-z]{2,})?)",message = "Email is Invalid")
