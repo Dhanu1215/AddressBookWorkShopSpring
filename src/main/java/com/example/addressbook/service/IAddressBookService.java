@@ -2,13 +2,19 @@ package com.example.addressbook.service;
 
 import java.util.List;
 
+
 import com.example.addressbook.dto.AddressBookDTO;
 import com.example.addressbook.model.AddressBookData;
 
 public interface IAddressBookService {
 	
-	List<AddressBookData> getAddressBookData();
+	List<AddressBookData> getAddressBooks();
 
-	AddressBookData createPersonData(AddressBookDTO addressDTO);
+	AddressBookData createAddressBookData(AddressBookDTO addressDTO);
 
+	AddressBookData getAddressBookById(int id);
+
+	AddressBookData updateAddressBook(int id, AddressBookDTO addressDTO);
+
+	void deleteAddressBook(int id);	
 }

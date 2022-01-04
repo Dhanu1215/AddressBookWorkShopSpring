@@ -14,10 +14,7 @@ public interface IPersonService {
 	
 	List<PersonData> getPersonData();
 	PersonData getPersonDataById(int id);
-	
-	PersonData createPersonData(PersonDTO personDTO);
-	
-	PersonData updatePersonData( int id,PersonDTO personDTO);
-	
 	void deletePersonData(int id);
+	PersonData createPersonData(int addressBookId, PersonDTO personDTO);
+	PersonData updatePersonData(int id, PersonDTO personDTO);
 }

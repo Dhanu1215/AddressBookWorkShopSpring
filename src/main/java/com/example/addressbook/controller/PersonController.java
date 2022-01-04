@@ -2,6 +2,7 @@ package com.example.addressbook.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.addressbook.dto.PersonDTO;
 import com.example.addressbook.dto.ResponceDTO;
@@ -68,9 +70,9 @@ public class PersonController {
 	 * @return : details
 	 */
 	@PostMapping("/create")
-	public ResponseEntity<ResponceDTO> createPersonData(@RequestBody PersonDTO presonDTO) {
+	public ResponseEntity<ResponceDTO> createPersonData(@RequestParam int addressBookId,@RequestBody PersonDTO personDTO) {
 		PersonData contactData = null;
-		contactData = personService.createPersonData(presonDTO);
+		contactData = personService.createPersonData(addressBookId,personDTO);
 		ResponceDTO respDTO = new ResponceDTO("Created AddressBook data Successfully", contactData);
 		return new ResponseEntity<ResponceDTO>(respDTO, HttpStatus.OK);
 	}
