@@ -31,7 +31,7 @@ public @Data class PersonData {
 	private String firstName;
 	private String lastName;
 	private String gender;
-	private long phoneNum;
+	private String phoneNum;
 	private String email;
 	private String city;
 	private String state;
