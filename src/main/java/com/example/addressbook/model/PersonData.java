@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.example.addressbook.dto.PersonDTO;
@@ -22,7 +24,7 @@ import lombok.Data;
 public @Data class PersonData {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "person_id")
 	private int personId;
 
@@ -39,7 +41,11 @@ public @Data class PersonData {
 
 	public PersonData() {
 	}
-
+	
+	@ManyToOne
+	@JoinColumn(name = "add_id", referencedColumnName = "book_id")
+	private AddressBookData addressBook;
+	
 	public PersonData(PersonDTO personDTO) {
 		this.updatePersonData(personDTO);
 	}
