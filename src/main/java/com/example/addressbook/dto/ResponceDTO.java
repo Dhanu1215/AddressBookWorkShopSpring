@@ -4,9 +4,7 @@ import lombok.Data;
 
 /**
  * Respond https status message and data
- * 
  * @author praja
- *
  */
 public @Data class ResponceDTO {
 

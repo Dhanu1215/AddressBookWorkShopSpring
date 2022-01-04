@@ -2,6 +2,7 @@ package com.example.addressbook.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -70,7 +71,7 @@ public class PersonController {
 	 * @return : details
 	 */
 	@PostMapping("/create")
-	public ResponseEntity<ResponceDTO> createPersonData(@RequestParam int addressBookId,@RequestBody PersonDTO personDTO) {
+	public ResponseEntity<ResponceDTO> createPersonData(@RequestParam int addressBookId,@Valid @RequestBody PersonDTO personDTO) {
 		PersonData contactData = null;
 		contactData = personService.createPersonData(addressBookId,personDTO);
 		ResponceDTO respDTO = new ResponceDTO("Created AddressBook data Successfully", contactData);
@@ -84,7 +85,7 @@ public class PersonController {
 	 * @return : details
 	 */
 	@PutMapping("/update/{id}")
-	public ResponseEntity<ResponceDTO> updatePersonData(@PathVariable("id") int id, @RequestBody PersonDTO personDTO) {
+	public ResponseEntity<ResponceDTO> updatePersonData(@Valid @PathVariable("id") int id,@Valid @RequestBody PersonDTO personDTO) {
 		PersonData contactData = null;
 		contactData = personService.updatePersonData(id, personDTO);
 		ResponceDTO respDTO = new ResponceDTO("Updated AddressBook data Successfully", contactData);
@@ -98,7 +99,7 @@ public class PersonController {
 	 * @return : contact id which is deleted
 	 */
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<ResponceDTO> deletePersonData(@PathVariable("id") int id) {
+	public ResponseEntity<ResponceDTO> deletePersonData(@Valid @PathVariable("id") int id) {
 		personService.deletePersonData(id);
 		ResponceDTO respDTO = new ResponceDTO("Deleted AddressBook data Successfully", "Deleted id : " + id);
 		return new ResponseEntity<ResponceDTO>(respDTO, HttpStatus.OK);
