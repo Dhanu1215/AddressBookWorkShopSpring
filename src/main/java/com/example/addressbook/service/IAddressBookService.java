@@ -6,6 +6,11 @@ import java.util.List;
 import com.example.addressbook.dto.AddressBookDTO;
 import com.example.addressbook.model.AddressBookData;
 
+/**
+ * Interface : Methods 
+ * @author praja
+ *
+ */
 public interface IAddressBookService {
 	
 	List<AddressBookData> getAddressBooks();

@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import com.example.addressbook.dto.AddressBookDTO;
 
 import lombok.Data;
+/**
+ * @Entity : Specifies that the class is an entity
+ * @author praja
+ *
+ */
 @Entity
 public @Data class AddressBookData {
 	
